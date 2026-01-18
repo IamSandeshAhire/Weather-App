@@ -1,38 +1,231 @@
-.App {
+/* 🌗 Themes */
+.app.dark {
+  --bg: #020617;
+  --card: #020617;
+  --border: #1e293b;
+  --text: #ffffff;
+  --muted: #94a3b8;
+  --accent: #38bdf8;
+}
+
+.app.light {
+  --bg: #f8fafc;
+  --card: #ffffff;
+  --border: #e2e8f0;
+  --text: #020617;
+  --muted: #475569;
+  --accent: #0284c7;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", sans-serif;
+}
+
+.app {
+  min-height: 100vh;
+  display: flex;
+  background: var(--bg);
+  color: var(--text);
+}
+
+/* Sidebar */
+.sidebar {
+  width: 90px;
+  border-right: 1px solid var(--border);
+  padding: 20px 10px;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.logo {
+  font-size: 28px;
+  margin-bottom: 30px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.sidebar p {
+  margin: 20px 0;
+  opacity: 0.6;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.sidebar .active {
+  opacity: 1;
+  font-weight: bold;
+}
+
+/* Main */
+.main {
+  flex: 1;
+  padding: 30px;
+}
+
+/* Top bar */
+.top-bar {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+/* Search */
+.search-bar {
+  display: flex;
+  gap: 10px;
+}
+
+.search-bar input {
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: var(--card);
+  color: var(--text);
+}
+
+.search-bar button {
+  padding: 12px 20px;
+  border-radius: 10px;
+  border: none;
+  background: var(--accent);
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+/* Toggle */
+.theme-toggle {
+  padding: 10px 14px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: var(--card);
+  color: var(--text);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+/* Error */
+.error {
+  color: #ef4444;
+}
+
+/* Current */
+.current-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 25px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.current-card h2 {
+  font-size: 48px;
+}
+
+.current-card img {
+  width: 140px;
+}
+
+.desc {
+  color: var(--muted);
+}
+
+/* Details */
+.details {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.info-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 15px;
+  padding: 15px;
+}
+
+.info-card p {
+  color: var(--muted);
+}
+
+/* Forecast */
+.forecast {
+  margin-top: 30px;
+}
+
+.forecast-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 15px;
+  margin-top: 10px;
+}
+
+.forecast-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 15px;
+  padding: 15px;
+  text-align: center;
+}
+
+.forecast-card img {
+  width: 50px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .app {
+    flex-direction: column;
   }
-  to {
-    transform: rotate(360deg);
+
+  .sidebar {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    border-right: none;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .details {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .forecast-grid {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
+.placeholder {
+  margin-top: 40px;
+  padding: 40px;
+  text-align: center;
+  border: 1px dashed var(--border);
+  border-radius: 15px;
+  color: var(--muted);
+  font-size: 18px;
+}
+
+/* 🗺️ Map */
+.map-container {
+  height: 400px;
+  margin-top: 20px;
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+.leaflet-container {
+  height: 100%;
+  width: 100%;
+}
+
+/* 🌡️ Temperature Marker (Modern Look) */
+.temp-marker div {
+  background: linear-gradient(135deg, #38bdf8, #0ea5e9);
+  color: #020617;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-weight: bold;
+  font-size: 14px;
+  border: 2px solid white;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.35);
+  white-space: nowrap;
+}
+
+
+
